@@ -1,0 +1,12 @@
+browserName=chrome
+URL=https://katalon-demo-cura.herokuapp.com/
+facilityName =Hongkong
+program =Medicaid
+date =2 jul 1999
+comment =Adding comment here
+expectedMessage =Appointment Confirmation
+readmission =Yes
+invalidLoginMessage=Login failed!
+
+inValidUserName=admin
+inValidPassword=admin
