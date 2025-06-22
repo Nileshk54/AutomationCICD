@@ -1,71 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="7" total="8" passed="0" failed="1" skipped="0">
+<testng-results ignored="7" total="8" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-20T21:46:18 IST" name="Suite" finished-at="2025-06-20T21:46:48 IST" duration-ms="30438">
+  <suite started-at="2025-06-22T15:39:20 IST" name="Default suite" finished-at="2025-06-22T15:39:39 IST" duration-ms="19474">
     <groups>
     </groups>
-    <test started-at="2025-06-20T21:46:18 IST" name="Test" finished-at="2025-06-20T21:46:48 IST" duration-ms="30438">
+    <test started-at="2025-06-22T15:39:20 IST" name="Default test" finished-at="2025-06-22T15:39:39 IST" duration-ms="19474">
       <class name="orangeHrm.AdminPageTestCases">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:orangeHrm.AdminPageTestCases@5b239d7d]" started-at="2025-06-20T21:46:18 IST" name="launchApplication" finished-at="2025-06-20T21:46:25 IST" duration-ms="7108" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:orangeHrm.AdminPageTestCases@6b81ce95]" started-at="2025-06-22T15:39:20 IST" name="launchApplication" finished-at="2025-06-22T15:39:26 IST" duration-ms="6245" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="createUser()[pri:0, instance:orangeHrm.AdminPageTestCases@5b239d7d]" started-at="2025-06-20T21:46:25 IST" name="createUser" finished-at="2025-06-20T21:46:48 IST" duration-ms="23306" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //span[text()='PIM'] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: '4.32.0', revision: 'd17c8aa950'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.105, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: C:\Users\hp\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53169}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53169/devtoo..., se:cdpVersion: 137.0.7151.105, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 4bfae9344c0454c91095629f857607dc]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[text()='PIM'] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: '4.32.0', revision: 'd17c8aa950'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.105, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: C:\Users\hp\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53169}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53169/devtoo..., se:cdpVersion: 137.0.7151.105, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 4bfae9344c0454c91095629f857607dc
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at orangeHrm.OrangeHrmBaseTest.explicitWaitForElementToAppear(OrangeHrmBaseTest.java:74)
-at orangeHrm.AdminUserManagement.createUser(AdminUserManagement.java:214)
-at orangeHrm.AdminPageTestCases.createUser(AdminPageTestCases.java:69)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method signature="createUser()[pri:0, instance:orangeHrm.AdminPageTestCases@6b81ce95]" started-at="2025-06-22T15:39:26 IST" name="createUser" finished-at="2025-06-22T15:39:39 IST" duration-ms="12947" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createUser -->
+        <test-method is-config="true" signature="closeApplication()[pri:0, instance:orangeHrm.AdminPageTestCases@6b81ce95]" started-at="2025-06-22T15:39:39 IST" name="closeApplication" finished-at="2025-06-22T15:39:39 IST" duration-ms="250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApplication -->
       </class> <!-- orangeHrm.AdminPageTestCases -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

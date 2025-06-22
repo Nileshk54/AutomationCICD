@@ -27,7 +27,7 @@ public class OrangeHrmBaseTest {
 
 	@BeforeMethod
 	public void launchApplication() {
-		String browserName=System.getProperty("browser")!=null?System.getProperty("browser"):"ChromeHeadless";
+		String browserName=System.getProperty("browser")!=null?System.getProperty("browser"):"Chrome";
 		System.out.println(browserName);
 		if(browserName.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();

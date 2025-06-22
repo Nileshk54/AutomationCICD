@@ -5,6 +5,7 @@
     <classes>
       <class name="orangeHrm.AdminPageTestCases">
         <methods>
+          <include name="closeApplication"/>
           <include name="launchApplication"/>
           <include name="createUser"/>
         </methods>

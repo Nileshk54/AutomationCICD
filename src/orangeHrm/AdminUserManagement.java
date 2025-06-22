@@ -206,12 +206,16 @@ public class AdminUserManagement extends OrangeHrmBaseTest {
 
 	// All Create User Imp Method
 	
-	public void createUser() throws InterruptedException {
+	public void createUser(String userid) throws InterruptedException {
 		goToPIMElement.click();
 		int count = getResultsCount(resultsFoundElement.getText());
-		forLoop(count);
+		boolean flag=forLoop(count,userid);
 		Thread.sleep(2000);
-		getEmployeeName();
+		//System.out.println(flag);
+		if(flag==true) {
+			getEmployeeName();
+		}
+		
 	}
 	
 	public void getEmployeeName() {
@@ -232,11 +236,12 @@ public class AdminUserManagement extends OrangeHrmBaseTest {
 
 	
 	
-	public void forLoop(int outerloop) throws InterruptedException {
+	public boolean forLoop(int outerloop,String userid) throws InterruptedException {
 		System.out.println(outerloop);
 		int remainder=outerloop%50;
 		int outerLoopValue=outerloop/50;
 		System.out.println("remainder :" +remainder);
+		boolean flag=false;
 		if(remainder!=0) {
 			outerLoopValue=outerLoopValue+1;
 		}
@@ -249,10 +254,11 @@ public class AdminUserManagement extends OrangeHrmBaseTest {
 			for(int j=1;j<=innerLoop;j++) {
 				String text=driver.findElement(By.xpath("//div[@class='oxd-table-card'][" + j + "]//div[contains(@class,'oxd-table-cell')][2]/div")).getText();
 				//System.out.println(text + " " + j  );
-				if(text.equalsIgnoreCase("0313")) {
+				if(text.equalsIgnoreCase(userid)) {
+					flag=true;
 					Thread.sleep(2000);
 					driver.findElement(By.xpath("//div[@class='oxd-table-card']["+j+"]//div[contains(@class,'oxd-table-cell')][9]//button[1]")).click();
-					return;
+					return flag;
 				}
 				if(j==50) {
 					number=number+50;
@@ -265,9 +271,15 @@ public class AdminUserManagement extends OrangeHrmBaseTest {
 						scrollUp();
 					}
 				}
+				
 			}
 		}
 		
+		if(flag==false) {
+			System.out.println("No User Found");
+		}
+		
+		return flag;
 	}
 
 	public int getResultsCount(String text) {

@@ -66,7 +66,7 @@ public class AdminPageTestCases extends OrangeHrmBaseTest{
 	public void createUser() throws InterruptedException {
 		LoginPage login=new LoginPage(driver);
 		AdminUserManagement adminPage=login.loginUser();
-		adminPage.createUser();
+		adminPage.createUser("0313");
 	}
 	
 	
