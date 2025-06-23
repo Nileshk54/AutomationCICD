@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import bsh.commands.dir;
@@ -281,7 +282,7 @@ public class AdminPageRecordFiltration extends OrangeHrmBaseTest{
 		System.out.println("actutalDisabledCount :" + actutalDisabledCount);
 	}
 	
-	public void searchByEmployeeName(String name) {
+	public void searchByEmployeeName(String name) throws InterruptedException  {
 		int expectedEmployeeCount=0;
 		int actutalEmployeeCount = 0;
 		
@@ -291,8 +292,9 @@ public class AdminPageRecordFiltration extends OrangeHrmBaseTest{
 		HashMap<String, Integer> hashmap=new HashMap<String, Integer>();
 		System.out.println(hashmap);
 		for(int i=1;i<=allEditButton.size();i++) {
+			Thread.sleep(500);
 			driver.findElement(By.xpath("//div[@class='oxd-table-card']["+i+"]//button[2]")).click();
-			
+			Thread.sleep(500);
 			fullEmployeeNameElement.click();
 			String value=fullEmployeeNameElement.getAttribute("value");
 			//System.out.println("value"+i+" :" + value);
@@ -302,6 +304,7 @@ public class AdminPageRecordFiltration extends OrangeHrmBaseTest{
 				hashmap.put(value, 1);
 			}
 			cancelButtonElement.click();
+			Thread.sleep(500);
 		}
 		
 
@@ -312,36 +315,43 @@ public class AdminPageRecordFiltration extends OrangeHrmBaseTest{
 			}
 		}
 		
-		System.out.println(expectedEmployeeCount);
+		System.out.println("expectedEmployeeCount" + expectedEmployeeCount);
 		
 		searchByEmployeeNameElement.sendKeys(name);
 		
 		List<WebElement> allActualNames=driver.findElements(By.xpath("//div[@role='listbox']//span"));
+		int listSize=allActualNames.size();
 		
-		for(WebElement singleName:allActualNames) {
-			if (singleName.getText().contains(name)) {
-				singleName.click();
+		if(listSize==0) {
+			actutalEmployeeCount=0;
+		}else {
+			for(WebElement singleName:allActualNames) {
+				if (singleName.getText().contains(name)) {
+					singleName.click();
+				}
 			}
+			
+			searchButtonElement.click();
 		}
 		
 		
-		searchButtonElement.click();
-		
 		String text = resultsFoundElement.getText();
-		if (text.split(" ")[0].equalsIgnoreCase("no")) {
+		if (text.split(" ")[0].equalsIgnoreCase("no")|| actutalEmployeeCount==0) {
 			
 			System.out.println("No Records found for Employee " + name);
+			//System.out.println("actutalEmployeeCount :" + actutalEmployeeCount  );
+			//System.out.println("expectedEmployeeCount :" + expectedEmployeeCount);
 			Assert.assertEquals(actutalEmployeeCount, expectedEmployeeCount);
 		} else {
 			String stringNumber = text.split(" ")[0].replaceAll("\\(", "").replaceAll("\\)", "");
 			actutalEmployeeCount = Integer.parseInt(stringNumber);
-
+			System.out.println("actutalEmployeeCount :" + actutalEmployeeCount  );
+			System.out.println("expectedEmployeeCount :" + expectedEmployeeCount);
 			Assert.assertEquals(actutalEmployeeCount, expectedEmployeeCount);
 		}
 		
 		
-		System.out.println("actutalEmployeeCount :" + actutalEmployeeCount  );
-		System.out.println("expectedEmployeeCount :" + expectedEmployeeCount);
+
 	}
 	
 	

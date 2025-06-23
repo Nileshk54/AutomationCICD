@@ -4,7 +4,7 @@
 	<test name="Test" parallel="tests">
 
 		<classes>
-			<class name="orangeHrm.AdminPageTestCases" />
+			<class name="orangeHrm.AdminPageFiltrationTestCases" />
 		</classes>
 	</test>
 </suite> <!--
